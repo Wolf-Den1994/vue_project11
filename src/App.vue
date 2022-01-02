@@ -9,6 +9,7 @@
 
       <div class="form-control">
         <input type="text" ref="textInput">
+        <input type="text" v-model="firstName">
       </div>
 
       <button class="btn" @click="change">Изменить</button>
@@ -31,6 +32,7 @@ export default {
     const name = ref('VueJS')
     const version = ref(3)
     const textInput = ref(null)
+    const firstName = ref('')
 
     // console.log(isRef(name)) //true
     // console.log(isRef(version.value)) //false
@@ -49,6 +51,10 @@ export default {
       console.log('new', newValues, 'old', oldValues) // new [8, 'Vue JS!'] old [6, 'VueJS']
     })
 
+    watch(firstName, (newValue, oldValue) => {
+      // console.log(newValue) // input.value
+    })
+
     function changeInfo() {
       name.value = 'Vue JS!'
       version.value = 4
@@ -61,7 +67,8 @@ export default {
       version,
       change: changeInfo,
       doubleVersion,
-      textInput
+      textInput,
+      firstName
     }
   }
   // data() {
