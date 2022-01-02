@@ -13,7 +13,11 @@
       <button class="btn" @click="change">Изменить</button>
     </div>
 
-    <framework-info :name="name" :version="version"></framework-info>
+    <framework-info
+      :name="name"
+      :version="version"
+      @change-version="changeVersion"
+    ></framework-info>
   </div>
 </template>
 
@@ -63,12 +67,17 @@ export default {
       // console.log(textInput.value) // input element
     }
 
+    const changeVersion = (num) => {
+      version.value = num
+    }
+
     return {
       name,
       version,
       change: changeInfo,
       textInput,
-      firstName
+      firstName,
+      changeVersion,
     }
   },
   components: {
