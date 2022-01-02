@@ -17,7 +17,12 @@
       :name="name"
       :version="version"
       @change-version="changeVersion"
-    ></framework-info>
+      class="text-from-app"
+    >
+      <template #footer>
+        <p>this is footer</p>
+      </template>
+    </framework-info>
   </div>
 </template>
 

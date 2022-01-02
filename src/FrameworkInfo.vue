@@ -13,6 +13,8 @@ export default {
   emits: ['change-version'],
   props: ['name', 'version'],
   setup(props, context) {
+
+
     const change = () => {
       context.emit('change-version', 3)
     }
