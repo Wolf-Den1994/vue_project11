@@ -1,10 +1,10 @@
 <template>
-  <app-alert
-    v-if="alert"
-    title="Работаем с Composition"
-    type="danger"
-    @close="close"
-  ></app-alert>
+<!--  <app-alert-->
+<!--    v-if="alert"-->
+<!--    title="Работаем с Composition"-->
+<!--    type="danger"-->
+<!--    @close="close"-->
+<!--  ></app-alert>-->
 
   <div class="card">
     <h1>Vue Composition Api</h1>
@@ -17,7 +17,7 @@
     </div>
 
     <button class="btn" @click="change">Изменить</button>
-    <button class="btn danger" @click="toggle">ALERT</button>
+<!--    <button class="btn danger" @click="toggle">ALERT</button>-->
   </div>
 
   <framework-info
@@ -49,6 +49,7 @@ import {
 } from 'vue'
 import FrameworkInfo from "../FrameworkInfo";
 import AppAlert from "@/AppAlert";
+// import {useAlert} from "../use/alert";
 
 export default {
   setup() {
@@ -56,10 +57,8 @@ export default {
     const version = ref(3)
     const textInput = ref(null)
     const firstName = ref('')
-    const alert = ref(false)
 
-    const toggle = () => alert.value = !alert.value
-    const close = () => alert.value = false
+    // const [alert, toggle, close] = useAlert()
 
     // console.log(isRef(name)) //true
     // console.log(isRef(version.value)) //false
@@ -119,9 +118,9 @@ export default {
       textInput,
       firstName,
       changeVersion,
-      alert,
-      toggle,
-      close
+      // alert,
+      // toggle,
+      // close
     }
   },
   components: {

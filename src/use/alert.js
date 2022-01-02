@@ -1,7 +1,7 @@
 import { ref } from 'vue'
 
-export function useAlert() {
-  const alert = ref(false)
+export function useAlert(visibility = false) {
+  const alert = ref(visibility)
 
   const toggle = () => alert.value = !alert.value
   const close = () => alert.value = false
@@ -11,4 +11,6 @@ export function useAlert() {
     toggle,
     close,
   }
+
+  // return [alert, toggle, close]
 }
