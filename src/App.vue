@@ -14,8 +14,6 @@
     </div>
 
     <framework-info
-      :name="name"
-      :version="version"
       @change-version="changeVersion"
       class="text-from-app"
     >
@@ -35,6 +33,7 @@ import {
   isReactive,
   computed,
   watch,
+  provide,
 } from 'vue'
 import FrameworkInfo from "@/FrameworkInfo";
 export default {
@@ -76,9 +75,10 @@ export default {
       version.value = num
     }
 
+    provide('name', name)
+    provide('version', version)
+
     return {
-      name,
-      version,
       change: changeInfo,
       textInput,
       firstName,
