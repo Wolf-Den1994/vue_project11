@@ -4,8 +4,6 @@
       <h1>Vue Composition Api</h1>
       <small>data, computed, methods, watch</small>
       <hr>
-      <p>Название: <strong>{{ name }}</strong></p>
-      <p>Версия: <strong>{{ version }} ({{ doubleVersion }})</strong></p>
 
       <div class="form-control">
         <input type="text" ref="textInput">
@@ -14,6 +12,8 @@
 
       <button class="btn" @click="change">Изменить</button>
     </div>
+
+    <framework-info :name="name" :version="version"></framework-info>
   </div>
 </template>
 
@@ -27,6 +27,7 @@ import {
   computed,
   watch,
 } from 'vue'
+import FrameworkInfo from "@/FrameworkInfo";
 export default {
   setup() {
     const name = ref('VueJS')
@@ -45,11 +46,11 @@ export default {
     // console.log(isReactive(framework)) //true
     // console.log(isReactive(framework.name)) //false
 
-    const doubleVersion = computed(() => version.value * 2)
+    // const doubleVersion = computed(() => version.value * 2)
 
-    watch([doubleVersion, name], (newValues, oldValues) => {
-      console.log('new', newValues, 'old', oldValues) // new [8, 'Vue JS!'] old [6, 'VueJS']
-    })
+    // watch([doubleVersion, name], (newValues, oldValues) => {
+    //   console.log('new', newValues, 'old', oldValues) // new [8, 'Vue JS!'] old [6, 'VueJS']
+    // })
 
     watch(firstName, (newValue, oldValue) => {
       // console.log(newValue) // input.value
@@ -66,22 +67,12 @@ export default {
       name,
       version,
       change: changeInfo,
-      doubleVersion,
       textInput,
       firstName
     }
+  },
+  components: {
+    FrameworkInfo
   }
-  // data() {
-  //   return {
-  //     name: 'VueJS',
-  //     version: 3
-  //   }
-  // },
-  // methods: {
-  //   changeInfo() {
-  //     this.name = 'Vue JS!'
-  //     this.version = 4
-  //   }
-  // }
 }
 </script>
