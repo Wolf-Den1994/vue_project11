@@ -34,6 +34,12 @@ import {
   computed,
   watch,
   provide,
+  onBeforeMount,
+  onMounted,
+  onBeforeUpdate,
+  onUpdated,
+  onBeforeUnmount,
+  onUnmounted,
 } from 'vue'
 import FrameworkInfo from "@/FrameworkInfo";
 export default {
@@ -50,6 +56,26 @@ export default {
       name: 'VueJS',
       version: 3
     })
+
+    console.log('created')
+
+    onBeforeMount(() => {
+      console.log('onBeforeMount')
+    })
+
+    onMounted(() => {
+      console.log('onMounted')
+    })
+
+    onBeforeUpdate(() => {
+      console.log('onBeforeUpdate')
+    })
+
+    onUpdated(() => {
+      console.log('onUpdated')
+    })
+
+
 
     // console.log(isReactive(framework)) //true
     // console.log(isReactive(framework.name)) //false
